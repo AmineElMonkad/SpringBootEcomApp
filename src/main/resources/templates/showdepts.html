@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Departement</title>
+	<!-- DataTables CSS -->
+    <link th:href="@{/layout/datatables-plugins/dataTables.bootstrap.css}" rel="stylesheet" />
+
+    <!-- DataTables Responsive CSS -->
+    <link th:href="@{/layout/datatables-responsive/dataTables.responsive.css}" rel="stylesheet" />
+    
+    <link th:href="@{/layout/css/custom.css}" rel="stylesheet" />
+    
+    
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<div class="row">
+		    <div class="col-lg-12">
+		        <h1 class="page-header">Départements</h1>
+		    </div>
+		    <!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="row">
+		    <div class="col-lg-12">
+		        <div class="panel panel-default">
+		            <div class="panel-heading">
+		                Listes des Départements
+		            </div>
+		            <!-- /.panel-heading -->
+		            <div class="panel-body">
+		                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+		                    <thead>
+		                        <tr>
+		                            <th>#ID</th>
+		                            <th>Nom</th>
+		                            <th>Description</th>
+		                            <th>Action</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <!-- <c:forEach items="${departements}" var="dept">
+		                        <tr class="odd gradeX">
+		                            <td>${dept.id}</td>
+		                            <td>${dept.code}</td>
+		                            <td class="modifiable">${dept.name}</td>
+		                            <td class="text-center">
+		                                <a href="departements?action=goDetail&id=${dept.id}" class="bt btn btn-info"><i class="fa fa-info-circle"></i> Details</a>
+		                                <a href="departements?action=goEdit&id=${dept.id}" class="bt btn btn-success">
+		                                <i class="fa fa-edit"> Edit</i>
+		                                </a>
+		                                <a href="departements?action=remove&id=${dept.id}" class="bt btn btn-danger">
+		                                    <i class="fa fa-close"> Delete</i>
+		                                </a>
+		                            </td>
+		                        </tr>
+		                        </c:forEach> -->
+		                        <tr th:each="dept : ${depts}" class="odd gradeX">
+								    <td th:text="${dept.idDepartement}"></td>
+								    <td th:text="${dept.name}"></td>
+								    <td th:text="${dept.description}"></td>
+								    <td class="text-center">
+		                                <a th:href="@{/ecommerce/detailsDept} + '/' + ${dept.idDepartement}" class="bt btn btn-info"><i class="fa fa-info-circle"></i> Details</a>
+		                                <a th:href="@{/ecommerce/editDept} + '/' + ${dept.idDepartement}" class="bt btn btn-success">
+		                                <i class="fa fa-edit"> Edit</i>
+		                                </a>
+		                                <a th:href="@{/ecommerce/deleteDept} + '/' + ${dept.idDepartement}" class="bt btn btn-danger">
+		                                    <i class="fa fa-close"> Delete</i>
+		                                </a>
+		                            </td>
+							  	</tr>
+		                    </tbody>
+		                </table>
+		                <!-- /.table-responsive -->
+		            </div>
+		            <!-- /.panel-body -->
+		        </div>
+		        <!-- /.panel -->
+		        <a th:href="@{/ecommerce/addDept}" class="btt btn btn-primary"><i class="fa fa-plus"></i> Add new Department</a>
+		    </div>
+		    <!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+
+	</div>
+	
+	<div layout:fragment="footer">
+	    <!-- DataTables JavaScript -->
+	    <script th:src="@{/layout/datatables/js/jquery.dataTables.min.js}" src="${pageContext.request.contextPath}"></script>
+	    <script th:src="@{/layout/datatables-plugins/dataTables.bootstrap.min.js}"></script>
+	    <script th:src="@{/layout/datatables-responsive/dataTables.responsive.js}"></script>
+	    <!-- <script>
+	    $(document).ready(function() {
+	        $('#dataTables-example').DataTable({
+	            responsive: true
+	        });
+	    });
+	    </script> -->
+	    <script>
+	    $(document).ready(function() {
+	        $('#dataTables-example').DataTable({
+	            responsive : true,
+	            "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+	            "iDisplayLength": 5
+	        });
+	    });
+	    </script>
+	    <!--
+	        oLanguage: {sLengthMenu: "<select>"+
+	            "<option value='5'>5</option>"+
+	            "<option value='10'>10</option>"+
+	            "<option value='15'>15</option>"+
+	            "<option value='-1'>All</option>"+
+	            "</select>"},
+	            "iDisplayLength": 5
+	    -->
+	    <script th:src="@{/layout/js/custom.js}"></script>
+	</div>
+	
+</body>
+</html>

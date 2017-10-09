@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Ajouter Catégorie</title>
+</head>
+<body>
+	
+	<div layout:fragment="content">
+		<div class="row">
+		    <div class="col-lg-12">
+		        <h1 class="page-header">Catégorie</h1>
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="col-lg-12">
+		        <div class="panel panel-default">
+		            <div class="panel-heading">
+		                Ajouter une catégorie
+		            </div>
+		            <div class="panel-body">
+		                <div class="row">
+		                    <form method="POST" th:action="@{/ecommerce/addCat}">
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                                <input class="form-control text-center" th:placeholder="${maxCatId}" disabled="disabled" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtNameCat" placeholder="Nom" />
+		                            </div>
+		
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtDescCat" placeholder="Description" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                                <select class="form-control" name="deptCat">
+		                                        <option th:each="dept : ${depts}" th:value="${dept.idDepartement}" th:text="${dept.name}"></option>
+		                                </select>
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-4">
+		                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</button>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Modifier Produit</title>
+</head>
+<body>
+		<div layout:fragment="content">
+		<div class="row">
+		    <div class="col-lg-12">
+		        <h1 class="page-header">Département</h1>
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="col-lg-12">
+		        <div class="panel panel-default">
+		            <div class="panel-heading">
+		                Modifier un Département
+		            </div>
+		            <div class="panel-body">
+		                <div class="row">
+		                    <form method="POST" th:action="@{/ecommerce/editDept}">
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                            	<input type="hidden" th:value="${dept.idDepartement}" name="txtIdDept" />
+		                                <input class="form-control text-center" th:placeholder="${dept.idDepartement}" disabled="disabled" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtNameDept" placeholder="Nom" th:value="${dept.name}" />
+		                            </div>
+		
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtDescDept" placeholder="Description" th:value="${dept.description}" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-4">
+		                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Modifier</button>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+</body>
+</html>

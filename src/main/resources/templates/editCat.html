@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Modifier Produit</title>
+</head>
+<body>
+		<div layout:fragment="content">
+		<div class="row">
+		    <div class="col-lg-12">
+		        <h1 class="page-header">Catégorie</h1>
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="col-lg-12">
+		        <div class="panel panel-default">
+		            <div class="panel-heading">
+		                Modifier une Catégorie
+		            </div>
+		            <div class="panel-body">
+		                <div class="row">
+		                    <form method="POST" th:action="@{/ecommerce/editCat}">
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                            	<input type="hidden" th:value="${cat.idCategory}" name="txtIdCat" />
+		                                <input class="form-control text-center" th:placeholder="${cat.idCategory}" disabled="disabled" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtNameCat" placeholder="Nom" th:value="${cat.name}" />
+		                            </div>
+		
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtDescCat" placeholder="Description" th:value="${cat.description}" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                                <select class="form-control" name="deptCat">
+		                                        <option th:each="dept : ${depts}" th:value="${dept.idDepartement}" th:text="${dept.name}" th:selected="${cat.departement.idDepartement == dept.idDepartement}"></option>
+		                                </select>
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-4">
+		                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Modifier</button>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+</body>
+</html>

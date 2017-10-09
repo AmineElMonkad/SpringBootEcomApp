@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Modifier Produit</title>
+</head>
+<body>
+		<div layout:fragment="content">
+		<div class="row">
+		    <div class="col-lg-12">
+		        <h1 class="page-header">Produit</h1>
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="col-lg-12">
+		        <div class="panel panel-default">
+		            <div class="panel-heading">
+		                Modifier un Produit
+		            </div>
+		            <div class="panel-body">
+		                <div class="row">
+		                    <form method="POST" th:action="@{/ecommerce/editProd}">
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                            	<input type="hidden" th:value="${prod.idProduit}" name="txtIdProd" />
+		                                <input class="form-control text-center" th:placeholder="${prod.idProduit}" disabled="disabled" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtNameProd" placeholder="Nom" th:value="${prod.name}" />
+		                            </div>
+		
+		                        </div>
+		                        <div class="col-lg-6">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtDescProd" placeholder="Description" th:value="${prod.description}" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                                <input class="form-control" name="txtPriceProd" placeholder="Description" th:value="${prod.price}" />
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-12">
+		                            <div class="form-group">
+		                                <select class="form-control" name="catProd">
+		                                        <option th:each="cat : ${cats}" th:value="${cat.idCategory}" th:text="${cat.name}" th:selected="${prod.category.idCategory == cat.idCategory}"></option>
+		                                </select>
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-4">
+		                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Modifier</button>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8" />
+<title>eCommerce Website</title>
+	<link th:href="@{/layout/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- MetisMenu CSS -->
+    <link th:href="@{/layout/metisMenu/metisMenu.min.css}" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link th:href="@{/layout/css/sb-admin-2.css}" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link th:href="@{/layout/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body>
+	<div id="wrapper">
+
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		    <div class="navbar-header">
+		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		        </button>
+		        <a class="navbar-brand" th:href="@{/ecommerce/home}">eCommerce BackEnd</a>
+		    </div>
+		    <!-- /.navbar-header -->
+		
+		    <ul class="nav navbar-top-links navbar-right">
+		
+		        <li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+		                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+		            </a>
+		            <ul class="dropdown-menu dropdown-user">
+		                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+		                </li>
+		                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+		                </li>
+		                <li class="divider"></li>
+		                <li><a th:href="@{/login/}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+		                </li>
+		            </ul>
+		            <!-- /.dropdown-user -->
+		        </li>
+		        <!-- /.dropdown -->
+		    </ul>
+		    <!-- /.navbar-top-links -->
+		
+		    <div class="navbar-default sidebar" role="navigation">
+		        <div class="sidebar-nav navbar-collapse">
+		            <ul class="nav" id="side-menu">
+		                <li>
+		                    <a href="#"><i class="fa fa-building fa-fw"></i> Départements<span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a th:href="@{/ecommerce/showdepts}">Lister Les Départements</a>
+		                        </li>
+		                        <li>
+		                            <a th:href="@{/ecommerce/addDept}">Ajouter un Département</a>
+		                        </li>
+		                    </ul>
+		                    <!-- /.nav-second-level -->
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-tags fa-fw"></i> Catégorie<span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a th:href="@{/ecommerce/showcats}">Lister Les Catégories</a>
+		                        </li>
+		                        <li>
+		                            <a th:href="@{/ecommerce/addCat}">Ajouter une Catégorie</a>
+		                        </li>
+		                    </ul>
+		                    <!-- /.nav-second-level -->
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-product-hunt fa-fw"></i> Produit<span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a th:href="@{/ecommerce/showprods}">Lister Les Produits</a>
+		                        </li>
+		                        <li>
+		                            <a th:href="@{/ecommerce/addProd}">Ajouter un Produit</a>
+		                        </li>
+		                    </ul>
+		                    <!-- /.nav-second-level -->
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a th:href="@{/admin/showadmins}">Lister Les Admins</a>
+		                        </li>
+		                        <li>
+		                            <a th:href="@{/admin/addAdmin}">Ajouter un Admin</a>
+		                        </li>
+		                    </ul>
+		                    <!-- /.nav-second-level -->
+		                </li>
+		            </ul>
+		        </div>
+		        <!-- /.sidebar-collapse -->
+		    </div>
+		    <!-- /.navbar-static-side -->
+		</nav>
+
+       <!-- Page Content -->
+       <div id="page-wrapper">
+           <div class="container-fluid">
+		
+				<section layout:fragment="content">
+				
+				</section>
+				
+			</div>
+		</div>
+	</div>
+	
+	
+	<script th:src="@{/layout/jquery/jquery.min.js}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script th:src="@{/layout/bootstrap/js/bootstrap.min.js}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script th:src="@{/layout/metisMenu/metisMenu.min.js}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script th:src="@{/layout/js/sb-admin-2.js}"></script>
+    
+    <!-- Nice Scroll -->
+    <script th:src="@{/layout/jquery/jquery.nicescroll.min.js}"></script>
+    
+    <!-- Trigger Nice Scroll Plugin -->
+    <script>
+        $("html").niceScroll();
+    </script>
+    
+    <div layout:fragment="footer"></div>
+</body>
+</html>
